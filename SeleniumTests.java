@@ -70,4 +70,18 @@ public class SeleniumTests {
         WebElement alertContainer = webDriver.findElement(By.id("alert"));
         Assert.assertTrue(alertContainer.getText().contains("Correct"));
     }
+
+    @Test
+public void addLoginTest() {
+    webDriver.navigate().to("https://selenium-testing-nu.vercel.app/");
+    WebElement usernameField = webDriver.findElement(By.id("username"));
+    WebElement passwordField = webDriver.findElement(By.id("password"));
+    usernameField.sendKeys("admin");
+    passwordField.sendKeys("test@123");
+    WebElement loginButton = webDriver.findElement(By.id("loginBtn"));
+    loginButton.click();
+    WebElement alertContainer = webDriver.findElement(By.id("alert"));
+    Assert.assertTrue(alertContainer.getText().contains("Correct"));
+}
+
 }

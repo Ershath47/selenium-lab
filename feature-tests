@@ -1,0 +1,31 @@
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FeatureTests {
+
+    WebDriver webDriver = new ChromeDriver();
+
+    @Test
+    public void checkWebpageTitle() {
+        webDriver.navigate().to("https://selenium-testing-nu.vercel.app/");
+        Assert.assertEquals("Selenium", webDriver.getTitle());
+    }
+
+    @Test
+    public void checkButtonText() {
+        webDriver.navigate().to("https://selenium-testing-nu.vercel.app/");
+        WebElement button = webDriver.findElement(By.id("myButton"));
+        Assert.assertEquals("Click Me", button.getText());
+    }
+
+    @Test
+    public void checkLoginContainerClassExist() {
+        webDriver.navigate().to("https://selenium-testing-nu.vercel.app/");
+        WebElement loginContainer = webDriver.findElement(By.className("login-container"));
+        Assert.assertNotNull(loginContainer);
+    }
+}
